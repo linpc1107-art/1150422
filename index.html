@@ -7,8 +7,20 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
-            line-height: 1.6;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            text-align: center;
         }
         .name {
             font-size: 24px;
@@ -24,16 +36,19 @@
         .experience {
             font-size: 16px;
             color: #555;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
-    <div class="name">林柏誠</div>
-    <div class="profession">攝影師</div>
-    <div class="experience">
-        <p>從事攝影工作</p>
-        <p>婚禮紀錄十年</p>
-        <p>廟會攝影十年</p>
+    <div class="card">
+        <div class="name">林柏誠</div>
+        <div class="profession">攝影師</div>
+        <div class="experience">
+            <p>從事攝影工作</p>
+            <p>婚禮紀錄十年</p>
+            <p>廟會攝影十年</p>
+        </div>
     </div>
 </body>
 </html>
