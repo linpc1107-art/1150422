@@ -8,7 +8,7 @@
         body {
             margin: 0;
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f5f5f5;
+            background-color: #fff;
             color: #333;
             line-height: 1.6;
         }
@@ -21,75 +21,93 @@
 
         header {
             text-align: center;
-            padding: 40px 0;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 60px 20px;
+            background-color: #f9f9f9;
         }
 
         h1 {
-            margin: 0;
+            margin: 0 0 10px 0;
+            font-size: 3rem;
+            font-weight: 300;
+            color: #000;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            filter: grayscale(100%);
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-left: 40px;
+        }
+
+        .hero-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            text-align: center;
             font-size: 2.5rem;
+            margin-bottom: 40px;
             font-weight: 300;
         }
 
-        nav {
-            background-color: #fff;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav li {
-            margin: 0;
-        }
-
-        nav a {
-            display: block;
-            padding: 15px 30px;
-            text-decoration: none;
-            color: #666;
-            transition: all 0.3s;
-            border-bottom: 3px solid transparent;
-        }
-
-        nav a:hover, nav a.active {
-            color: #000;
-            border-bottom-color: #000;
-        }
-
-        .tab-content {
-            display: none;
-            padding: 40px 0;
-            background-color: #fff;
-            min-height: 400px;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .pricing ul {
-            list-style: none;
-            padding: 0;
-            max-width: 600px;
+        .pricing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .pricing li {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid #e0e0e0;
+        .pricing-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
         }
 
-        .pricing li:last-child {
-            border-bottom: none;
+        .pricing-item h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+        }
+
+        .pricing-item .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #000;
         }
 
         .booking {
@@ -100,10 +118,11 @@
 
         .booking select, .booking input, .booking button {
             margin: 10px;
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ccc;
             border-radius: 4px;
             font-family: inherit;
+            font-size: 1rem;
         }
 
         .booking button {
@@ -111,6 +130,7 @@
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s;
+            font-weight: bold;
         }
 
         .booking button:hover {
@@ -121,8 +141,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .portfolio-item {
@@ -138,39 +156,78 @@
             object-fit: cover;
             border-radius: 4px;
         }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .bio {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>林柏誠 - 婚禮攝影</h1>
+            <h1>林柏誠</h1>
+            <p>婚禮攝影師</p>
         </div>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#" class="tab-link active" data-tab="pricing">價格</a></li>
-            <li><a href="#" class="tab-link" data-tab="booking">預約</a></li>
-            <li><a href="#" class="tab-link" data-tab="portfolio">作品</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <div id="pricing" class="tab-content active">
-            <h2>價格表</h2>
-            <ul class="pricing">
-                <li><span>儀式午宴</span><span>18800</span></li>
-                <li><span>儀式晚宴</span><span>25000</span></li>
-                <li><span>單儀式/單宴客</span><span>15800</span></li>
-                <li><span>雙儀式午宴</span><span>28800</span></li>
-                <li><span>雙儀式晚宴</span><span>32000</span></li>
-            </ul>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-image">
+                <img src="https://picsum.photos/500/400?grayscale&random=1" alt="雙手對戒黑白照片">
+            </div>
+            <div class="hero-text">
+                <h2>捕捉每一個溫馨時刻</h2>
+                <p>擁有十年經驗攝影婚禮紀錄，每次都是一場故事的開始，都是一場溫馨感人的時刻，新人的第三隻眼，看到宇著不同的感動。</p>
+            </div>
         </div>
+    </section>
 
-        <div id="booking" class="tab-content">
-            <h2>預約時間</h2>
+    <section id="pricing">
+        <div class="container">
+            <h2>價格表</h2>
+            <div class="pricing">
+                <div class="pricing-item">
+                    <h3>儀式午宴</h3>
+                    <div class="price">18800</div>
+                </div>
+                <div class="pricing-item">
+                    <h3>儀式晚宴</h3>
+                    <div class="price">22800</div>
+                </div>
+                <div class="pricing-item">
+                    <h3>雙儀式宴客</h3>
+                    <div class="price">36000</div>
+                </div>
+                <div class="pricing-item">
+                    <h3>單宴客/單儀式</h3>
+                    <div class="price">15800</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking">
+        <div class="container">
+            <h2>預約</h2>
             <div class="booking">
-                <p>請選擇月份：</p>
+                <select id="year">
+                    <option value="2026">2026年</option>
+                    <option value="2027">2027年</option>
+                    <option value="2028">2028年</option>
+                </select>
                 <select id="month">
                     <option value="1">1月</option>
                     <option value="2">2月</option>
@@ -185,59 +242,58 @@
                     <option value="11">11月</option>
                     <option value="12">12月</option>
                 </select>
-                <p>請選擇日期和時間：</p>
                 <input type="date" id="date">
                 <input type="time" id="time">
                 <button onclick="bookAppointment()">預約</button>
             </div>
         </div>
+    </section>
 
-        <div id="portfolio" class="tab-content">
-            <h2>作品集</h2>
+    <section id="portfolio">
+        <div class="container">
+            <h2>作品</h2>
             <div class="portfolio">
                 <div class="portfolio-item">
-                    <img src="https://via.placeholder.com/300x200?text=婚禮作品1" alt="婚禮作品1">
-                    <p>婚禮儀式拍攝</p>
+                    <img src="https://picsum.photos/300/200?grayscale&random=2" alt="婚禮作品1">
+                    <p>婚禮儀式</p>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://via.placeholder.com/300x200?text=婚禮作品2" alt="婚禮作品2">
+                    <img src="https://picsum.photos/300/200?grayscale&random=3" alt="婚禮作品2">
                     <p>晚宴現場</p>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://via.placeholder.com/300x200?text=婚禮作品3" alt="婚禮作品3">
-                    <p>中國風婚禮</p>
+                    <img src="https://picsum.photos/300/200?grayscale&random=4" alt="婚禮作品3">
+                    <p>新人合影</p>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://via.placeholder.com/300x200?text=婚禮作品4" alt="婚禮作品4">
+                    <img src="https://picsum.photos/300/200?grayscale&random=5" alt="婚禮作品4">
                     <p>儀式美學</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>聯絡方式</h2>
+            <div class="contact">
+                <p>電話：0982088752</p>
+                <p>Line：lin-b-c</p>
+            </div>
+            <div class="bio">
+                <p>擁有十年經驗攝影婚禮紀錄，每次都是一場故事的開始，都是一場溫馨感人的時刻，新人的第三隻眼，看到宇著不同的感動。</p>
+            </div>
+        </div>
+    </section>
 
     <script>
-        const tabLinks = document.querySelectorAll('.tab-link');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const tabId = this.getAttribute('data-tab');
-
-                tabLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-
-                tabContents.forEach(content => content.classList.remove('active'));
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-
         function bookAppointment() {
+            const year = document.getElementById('year').value;
             const month = document.getElementById('month').value;
             const date = document.getElementById('date').value;
             const time = document.getElementById('time').value;
             if (date && time) {
-                alert(`預約成功！月份：${month}月，日期：${date}，時間：${time}`);
+                alert(`預約成功！${year}年${month}月，日期：${date}，時間：${time}`);
             } else {
                 alert('請選擇日期和時間');
             }
