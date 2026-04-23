@@ -3,464 +3,358 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>林柏誠 - 婚禮攝影</title>
+    <title>林柏誠 婚禮攝影</title>
     <style>
         body {
             margin: 0;
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #fff;
-            color: #333;
+            background-color: #fafafa;
+            color: #222;
             line-height: 1.6;
         }
 
         .container {
-            max-width: 1200px;
+            width: min(1100px, 95%);
             margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background-color: #f9f9f9;
-        }
-
-        h1 {
-            margin: 0 0 10px 0;
-            font-size: 3rem;
-            font-weight: 300;
-            color: #000;
+            padding: 40px 0;
         }
 
         .hero {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 40px;
             align-items: center;
-            justify-content: space-between;
-            padding: 60px 0;
-            background-color: #fff;
+            padding-bottom: 40px;
         }
 
         .hero-image {
-            flex: 1;
-            text-align: center;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
         }
 
         .hero-image img {
             width: 100%;
-            max-width: 500px;
             height: auto;
+            display: block;
             filter: grayscale(100%);
         }
 
-        .hero-text {
-            flex: 1;
-            padding-left: 40px;
+        .hero-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 24px;
         }
 
-        .hero-text h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #000;
+        .hero-info h1 {
+            margin: 0;
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            letter-spacing: 0.06em;
+            font-weight: 400;
         }
 
-        .hero-text p {
-            font-size: 1.2rem;
-            line-height: 1.8;
+        .hero-info p {
+            margin: 0;
+            font-size: 1.05rem;
+            color: #444;
         }
 
-        section {
-            padding: 60px 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        section:last-child {
-            border-bottom: none;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        .pricing {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .pricing-item {
-            background-color: #f9f9f9;
-            padding: 20px;
-            text-align: center;
-            border-radius: 8px;
-        }
-
-        .pricing-item h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.5rem;
-        }
-
-        .pricing-item .price {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #000;
-        }
-
-        .booking {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .booking select, .booking input, .booking button {
-            margin: 10px;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-
-        .booking button {
-            background-color: #000;
+        .hero-info button {
+            width: fit-content;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 999px;
+            background-color: #111;
             color: #fff;
             cursor: pointer;
-            transition: background-color 0.3s;
-            font-weight: bold;
+            font-size: 1rem;
+            transition: background-color 0.2s ease;
         }
 
-        .booking button:hover {
+        .hero-info button:hover {
             background-color: #333;
         }
 
-        .portfolio {
+        section {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin: 0 0 30px;
+            text-align: center;
+            font-weight: 400;
+            color: #111;
+        }
+
+        .pricing-grid,
+        .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
 
+        .pricing-grid {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 1.1rem;
+            letter-spacing: 0.04em;
+            color: #111;
+        }
+
+        .card .price {
+            margin-top: 16px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .booking-form {
+            max-width: 720px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+        }
+
+        .booking-form .field-group {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .booking-form select,
+        .booking-form input,
+        .booking-form button {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 1rem;
+            color: #222;
+            background-color: #fff;
+        }
+
+        .booking-form button {
+            border: none;
+            background-color: #111;
+            color: #fff;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .booking-form button:hover {
+            background-color: #333;
+        }
+
+        .portfolio-grid {
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+
         .portfolio-item {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
+            overflow: hidden;
+            border-radius: 18px;
+            background-color: #fff;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
         }
 
         .portfolio-item img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 4px;
+            display: block;
+            filter: grayscale(100%);
         }
 
-        .contact {
-            text-align: center;
+        .portfolio-item p {
+            margin: 16px;
+            color: #444;
+            font-size: 1rem;
         }
 
-        .contact p {
-            font-size: 1.2rem;
-            margin: 10px 0;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .contact-card {
+            background-color: #fff;
+            padding: 24px;
+            border-radius: 18px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .contact-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.1rem;
+            color: #111;
+        }
+
+        .contact-card p {
+            margin: 8px 0;
+            color: #444;
         }
 
         .bio {
-            max-width: 800px;
+            max-width: 840px;
             margin: 0 auto;
-            text-align: center;
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        @media (max-width: 860px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-form .field-group {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>林柏誠</h1>
-            <p>婚禮攝影師</p>
-        </div>
-    </header>
-</body>
-</html><!DOCTYPE html>
-<html lang="zh-tw">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>電子名片 - 林柏誠</title>
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            background: radial-gradient(circle at top left, #f7e7d0 0%, #f0d3b6 30%, #9a5034 100%);
-            font-family: "Noto Serif TC", "Songti SC", "PingFang TC", serif;
-            color: #3c2415;
-            padding: 20px;
-        }
-
-        .card {
-            position: relative;
-            width: min(420px, 90vw);
-            padding: 32px 28px 28px;
-            background: linear-gradient(180deg, rgba(255,244,226,0.95), rgba(241,205,146,0.95));
-            border: 2px solid #8b3f22;
-            border-radius: 28px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
-            overflow: hidden;
-        }
-
-        .card::before,
-        .card::after {
-            content: "";
-            position: absolute;
-            width: 120%;
-            height: 120%;
-            border: 1px dashed rgba(139, 63, 34, 0.4);
-            top: -10%;
-            left: -10%;
-            pointer-events: none;
-            transform: rotate(2deg);
-        }
-
-        .card::after {
-            top: auto;
-            bottom: -10%;
-            left: auto;
-            right: -10%;
-            transform: rotate(-2deg);
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .name {
-            font-size: clamp(2rem, 4vw, 2.6rem);
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            line-height: 1.05;
-        }
-
-        .title {
-            font-size: 1rem;
-            background: rgba(156, 73, 30, 0.12);
-            color: #6b3720;
-            padding: 6px 12px;
-            border-radius: 999px;
-            border: 1px solid rgba(139, 63, 34, 0.3);
-        }
-
-        .services,
-        .details {
-            text-align: left;
-            line-height: 1.8;
-            margin-bottom: 18px;
-        }
-
-        .section-title {
-            font-size: 0.98rem;
-            letter-spacing: 0.18em;
-            margin-bottom: 10px;
-            color: #7a3f20;
-        }
-
-        .services li,
-        .details li {
-            margin-bottom: 10px;
-        }
-
-        .services li::before {
-            content: "‧";
-            color: #8b3f22;
-            display: inline-block;
-            width: 1.2em;
-        }
-
-        .details {
-            background: rgba(255, 255, 255, 0.72);
-            padding: 18px;
-            border-radius: 18px;
-            border: 1px solid rgba(139, 63, 34, 0.16);
-        }
-
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 12px;
-            color: #5b3924;
-            font-size: 0.95rem;
-        }
-
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 12px;
-            color: #5b3924;
-            font-size: 0.95rem;
-        }
-
-        .seal {
-            font-size: 0.85rem;
-            letter-spacing: 0.2em;
-            padding: 6px 14px;
-            border: 1px solid #8b3f22;
-            border-radius: 999px;
-            background: rgba(139, 63, 34, 0.08);
-        }
-
-        .pricing {
-            margin-top: 20px;
-            background: linear-gradient(180deg, rgba(255,244,226,0.95), rgba(241,205,146,0.95));
-            border: 2px solid #8b3f22;
-            border-radius: 28px;
-            padding: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
-        }
-
-        .pricing h2 {
-            font-size: 1.5rem;
-            color: #3c2415;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .pricing ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .pricing li {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(139, 63, 34, 0.2);
-        }
-
-        .pricing li:last-child {
-            border-bottom: none;
-        }
-
-        .booking {
-            margin-top: 20px;
-            background: linear-gradient(180deg, rgba(255,244,226,0.95), rgba(241,205,146,0.95));
-            border: 2px solid #8b3f22;
-            border-radius: 28px;
-            padding: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
-            text-align: center;
-        }
-
-        .booking h2 {
-            font-size: 1.5rem;
-            color: #3c2415;
-            margin-bottom: 15px;
-        }
-
-        .booking select, .booking button {
-            margin: 10px;
-            padding: 10px;
-            border: 1px solid #8b3f22;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.8);
-            font-family: inherit;
-            color: #3c2415;
-        }
-
-        .booking button {
-            background: #8b3f22;
-            color: white;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .booking button:hover {
-            background: #6b3720;
-        }
-    </style>
-</head>
-<body>
-    <div class="card">
-        <div class="header">
-            <div>
-                <div class="name">林柏誠</div>
-                <div class="title">婚禮 / 活動 / 廟會攝影</div>
+    <div class="container">
+        <section class="hero">
+            <div class="hero-image">
+                <img id="heroPhoto" src="https://picsum.photos/720/520?grayscale&random=1" alt="雙手對戒黑白照片">
             </div>
-            <div class="seal">十年資歷</div>
-        </div>
+            <div class="hero-info">
+                <h1>婚禮攝影紀錄</h1>
+                <p>擁有十年經驗攝影婚禮紀錄，每次都是一場故事的開始，都是一場溫馨感人的時刻，新人的第三隻眼，看到宇著不同的感動。</p>
+                <button onclick="generatePhoto()">生成黑白對戒照片</button>
+            </div>
+        </section>
 
-        <div class="services">
-            <div class="section-title">服務項目</div>
-            <ul>
-                <li>婚禮攝影紀錄</li>
-                <li>活動現場攝影</li>
-                <li>廟會與信仰紀實</li>
-            </ul>
-        </div>
+        <section>
+            <div class="section-title">價格表</div>
+            <div class="pricing-grid">
+                <div class="card">
+                    <h3>儀式午宴</h3>
+                    <div class="price">18800</div>
+                </div>
+                <div class="card">
+                    <h3>儀式晚宴</h3>
+                    <div class="price">22800</div>
+                </div>
+                <div class="card">
+                    <h3>雙儀式宴客</h3>
+                    <div class="price">36000</div>
+                </div>
+                <div class="card">
+                    <h3>單宴客 / 單儀式</h3>
+                    <div class="price">15800</div>
+                </div>
+            </div>
+        </section>
 
-        <div class="details">
-            <div class="section-title">關於我</div>
-            <p>專注於中國風視覺與儀式氛圍，擅長捕捉婚禮、活動、廟會中的每個瞬間與情感。擁有十年攝影經驗，讓每張作品都充滿故事與沉澱。</p>
-        </div>
+        <section>
+            <div class="section-title">預約表</div>
+            <div class="booking-form">
+                <div class="field-group">
+                    <select id="year">
+                        <option value="2026">2026年</option>
+                        <option value="2027">2027年</option>
+                        <option value="2028">2028年</option>
+                    </select>
+                    <select id="month">
+                        <option value="1">1月</option>
+                        <option value="2">2月</option>
+                        <option value="3">3月</option>
+                        <option value="4">4月</option>
+                        <option value="5">5月</option>
+                        <option value="6">6月</option>
+                        <option value="7">7月</option>
+                        <option value="8">8月</option>
+                        <option value="9">9月</option>
+                        <option value="10">10月</option>
+                        <option value="11">11月</option>
+                        <option value="12">12月</option>
+                    </select>
+                    <input type="date" id="date">
+                </div>
+                <div class="field-group">
+                    <input type="time" id="time">
+                    <button type="button" onclick="bookAppointment()">確認預約</button>
+                </div>
+            </div>
+        </section>
 
-        <div class="footer">
-            <div>攝影風格：中國風 / 儀式美學</div>
-            <div>專業服務：林柏誠</div>
-        </div>
-    </div>
+        <section>
+            <div class="section-title">作品區</div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/400/300?grayscale&random=2" alt="作品1">
+                    <p>婚禮儀式紀錄</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/400/300?grayscale&random=3" alt="作品2">
+                    <p>新人互動瞬間</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/400/300?grayscale&random=4" alt="作品3">
+                    <p>晚宴現場情感</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/400/300?grayscale&random=5" alt="作品4">
+                    <p>儀式氛圍捕捉</p>
+                </div>
+            </div>
+        </section>
 
-    <div class="pricing">
-        <h2>價格表</h2>
-        <ul>
-            <li><span>儀式午宴</span><span>18800</span></li>
-            <li><span>儀式晚宴</span><span>25000</span></li>
-            <li><span>單儀式/單宴客</span><span>15800</span></li>
-            <li><span>雙儀式午宴</span><span>28800</span></li>
-            <li><span>雙儀式晚宴</span><span>32000</span></li>
-        </ul>
-    </div>
+        <section>
+            <div class="section-title">聯絡方式</div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>電話</h3>
+                    <p>0982088752</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Line</h3>
+                    <p>lin-b-c</p>
+                </div>
+            </div>
+        </section>
 
-    <div class="booking">
-        <h2>預約時間</h2>
-        <p>請選擇月份：</p>
-        <select id="month">
-            <option value="1">1月</option>
-            <option value="2">2月</option>
-            <option value="3">3月</option>
-            <option value="4">4月</option>
-            <option value="5">5月</option>
-            <option value="6">6月</option>
-            <option value="7">7月</option>
-            <option value="8">8月</option>
-            <option value="9">9月</option>
-            <option value="10">10月</option>
-            <option value="11">11月</option>
-            <option value="12">12月</option>
-        </select>
-        <p>請選擇日期和時間：</p>
-        <input type="date" id="date">
-        <input type="time" id="time">
-        <button onclick="bookAppointment()">預約</button>
+        <section>
+            <div class="section-title">個人簡介</div>
+            <div class="bio">
+                <p>擁有十年經驗攝影婚禮紀錄，每次都是一場故事的開始，都是一場溫馨感人的時刻，新人的第三隻眼，看到宇著不同的感動。</p>
+            </div>
+        </section>
     </div>
 
     <script>
+        function generatePhoto() {
+            const heroPhoto = document.getElementById('heroPhoto');
+            const randomId = Math.floor(Math.random() * 1000) + 1;
+            heroPhoto.src = `https://picsum.photos/720/520?grayscale&random=${randomId}`;
+        }
+
         function bookAppointment() {
+            const year = document.getElementById('year').value;
             const month = document.getElementById('month').value;
             const date = document.getElementById('date').value;
             const time = document.getElementById('time').value;
-            if (date && time) {
-                alert(`預約成功！月份：${month}月，日期：${date}，時間：${time}`);
-            } else {
+            if (!date || !time) {
                 alert('請選擇日期和時間');
+                return;
             }
+            alert(`預約成功！${year}年 ${month}月 ${date}，時間：${time}`);
         }
     </script>
+</body>
+</html>
