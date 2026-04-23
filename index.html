@@ -8,12 +8,10 @@
         body {
             margin: 0;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             background: radial-gradient(circle at top left, #f7e7d0 0%, #f0d3b6 30%, #9a5034 100%);
             font-family: "Noto Serif TC", "Songti SC", "PingFang TC", serif;
             color: #3c2415;
+            padding: 20px;
         }
 
         .card {
@@ -115,6 +113,17 @@
             font-size: 0.95rem;
         }
 
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+            color: #5b3924;
+            font-size: 0.95rem;
+        }
+
         .seal {
             font-size: 0.85rem;
             letter-spacing: 0.2em;
@@ -122,6 +131,75 @@
             border: 1px solid #8b3f22;
             border-radius: 999px;
             background: rgba(139, 63, 34, 0.08);
+        }
+
+        .pricing {
+            margin-top: 20px;
+            background: linear-gradient(180deg, rgba(255,244,226,0.95), rgba(241,205,146,0.95));
+            border: 2px solid #8b3f22;
+            border-radius: 28px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
+        }
+
+        .pricing h2 {
+            font-size: 1.5rem;
+            color: #3c2415;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .pricing ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pricing li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(139, 63, 34, 0.2);
+        }
+
+        .pricing li:last-child {
+            border-bottom: none;
+        }
+
+        .booking {
+            margin-top: 20px;
+            background: linear-gradient(180deg, rgba(255,244,226,0.95), rgba(241,205,146,0.95));
+            border: 2px solid #8b3f22;
+            border-radius: 28px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
+            text-align: center;
+        }
+
+        .booking h2 {
+            font-size: 1.5rem;
+            color: #3c2415;
+            margin-bottom: 15px;
+        }
+
+        .booking select, .booking button {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #8b3f22;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            font-family: inherit;
+            color: #3c2415;
+        }
+
+        .booking button {
+            background: #8b3f22;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .booking button:hover {
+            background: #6b3720;
         }
     </style>
 </head>
@@ -154,5 +232,50 @@
             <div>專業服務：林柏誠</div>
         </div>
     </div>
-</body>
-</html>
+
+    <div class="pricing">
+        <h2>價格表</h2>
+        <ul>
+            <li><span>儀式午宴</span><span>18800</span></li>
+            <li><span>儀式晚宴</span><span>25000</span></li>
+            <li><span>單儀式/單宴客</span><span>15800</span></li>
+            <li><span>雙儀式午宴</span><span>28800</span></li>
+            <li><span>雙儀式晚宴</span><span>32000</span></li>
+        </ul>
+    </div>
+
+    <div class="booking">
+        <h2>預約時間</h2>
+        <p>請選擇月份：</p>
+        <select id="month">
+            <option value="1">1月</option>
+            <option value="2">2月</option>
+            <option value="3">3月</option>
+            <option value="4">4月</option>
+            <option value="5">5月</option>
+            <option value="6">6月</option>
+            <option value="7">7月</option>
+            <option value="8">8月</option>
+            <option value="9">9月</option>
+            <option value="10">10月</option>
+            <option value="11">11月</option>
+            <option value="12">12月</option>
+        </select>
+        <p>請選擇日期和時間：</p>
+        <input type="date" id="date">
+        <input type="time" id="time">
+        <button onclick="bookAppointment()">預約</button>
+    </div>
+
+    <script>
+        function bookAppointment() {
+            const month = document.getElementById('month').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            if (date && time) {
+                alert(`預約成功！月份：${month}月，日期：${date}，時間：${time}`);
+            } else {
+                alert('請選擇日期和時間');
+            }
+        }
+    </script>
