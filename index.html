@@ -6,48 +6,152 @@
     <title>電子名片 - 林柏誠</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            margin: 0;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            background: radial-gradient(circle at top left, #f7e7d0 0%, #f0d3b6 30%, #9a5034 100%);
+            font-family: "Noto Serif TC", "Songti SC", "PingFang TC", serif;
+            color: #3c2415;
         }
+
         .card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            max-width: 400px;
-            text-align: center;
+            position: relative;
+            width: min(420px, 90vw);
+            padding: 32px 28px 28px;
+            background: linear-gradient(180deg, rgba(255,244,226,0.95), rgba(241,205,146,0.95));
+            border: 2px solid #8b3f22;
+            border-radius: 28px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
+            overflow: hidden;
         }
+
+        .card::before,
+        .card::after {
+            content: "";
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            border: 1px dashed rgba(139, 63, 34, 0.4);
+            top: -10%;
+            left: -10%;
+            pointer-events: none;
+            transform: rotate(2deg);
+        }
+
+        .card::after {
+            top: auto;
+            bottom: -10%;
+            left: auto;
+            right: -10%;
+            transform: rotate(-2deg);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
         .name {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
+            font-size: clamp(2rem, 4vw, 2.6rem);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            line-height: 1.05;
+        }
+
+        .title {
+            font-size: 1rem;
+            background: rgba(156, 73, 30, 0.12);
+            color: #6b3720;
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(139, 63, 34, 0.3);
+        }
+
+        .services,
+        .details {
+            text-align: left;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            font-size: 0.98rem;
+            letter-spacing: 0.18em;
+            margin-bottom: 10px;
+            color: #7a3f20;
+        }
+
+        .services li,
+        .details li {
             margin-bottom: 10px;
         }
-        .profession {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 20px;
+
+        .services li::before {
+            content: "‧";
+            color: #8b3f22;
+            display: inline-block;
+            width: 1.2em;
         }
-        .experience {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.5;
+
+        .details {
+            background: rgba(255, 255, 255, 0.72);
+            padding: 18px;
+            border-radius: 18px;
+            border: 1px solid rgba(139, 63, 34, 0.16);
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+            color: #5b3924;
+            font-size: 0.95rem;
+        }
+
+        .seal {
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            padding: 6px 14px;
+            border: 1px solid #8b3f22;
+            border-radius: 999px;
+            background: rgba(139, 63, 34, 0.08);
         }
     </style>
 </head>
 <body>
     <div class="card">
-        <div class="name">林柏誠</div>
-        <div class="profession">攝影師</div>
-        <div class="experience">
-            <p>從事攝影工作</p>
-            <p>婚禮紀錄十年</p>
-            <p>廟會攝影十年</p>
+        <div class="header">
+            <div>
+                <div class="name">林柏誠</div>
+                <div class="title">婚禮 / 活動 / 廟會攝影</div>
+            </div>
+            <div class="seal">十年資歷</div>
+        </div>
+
+        <div class="services">
+            <div class="section-title">服務項目</div>
+            <ul>
+                <li>婚禮攝影紀錄</li>
+                <li>活動現場攝影</li>
+                <li>廟會與信仰紀實</li>
+            </ul>
+        </div>
+
+        <div class="details">
+            <div class="section-title">關於我</div>
+            <p>專注於中國風視覺與儀式氛圍，擅長捕捉婚禮、活動、廟會中的每個瞬間與情感。擁有十年攝影經驗，讓每張作品都充滿故事與沉澱。</p>
+        </div>
+
+        <div class="footer">
+            <div>攝影風格：中國風 / 儀式美學</div>
+            <div>專業服務：林柏誠</div>
         </div>
     </div>
 </body>
